@@ -9,11 +9,22 @@
 const kmNumber = parseInt (prompt('Inserisci qui il numero dei chilometri che farai'));
 const passengerAge = parseInt(prompt('Inserisci qui il l\'età'));
 const kmPrice = 0.21;
-const ticketPrice = kmNumber * kmPrice;
-const discountUnder18 = ((ticketPrice * 20) / 100);
-const discountOver65 = ((ticketPrice * 40) / 100);
+let ticketPrice = kmNumber * kmPrice;
 
 
+if (passengerAge < 18) {
+    let discount = ((ticketPrice * 20) / 100);
+    let discountedTicketPrice = ticketPrice - discount;
+    let discountedPrice = discountedTicketPrice.toFixed(2);
+    console.log(discountedPrice)
 
-console.log(kmPrice, kmNumber, passengerAge, ticketPrice, discountUnder18, discountOver65);
-console.warn(typeof kmPrice, kmNumber, passengerAge, ticketPrice, discountUnder18, discountOver65);
+} else if (passengerAge > 65) {
+    let discount = ((ticketPrice * 40) / 100);
+    let discountedTicketPrice = ticketPrice - discount;
+    let discountedPrice = discountedTicketPrice.toFixed(2);
+    console.log(discountedPrice)
+
+} else {
+    let basePrice = ticketPrice.toFixed(2);
+    console.log(basePrice);
+}
